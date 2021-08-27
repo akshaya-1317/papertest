@@ -1,0 +1,239 @@
+<h3>Candidate details</h3>
+
+<hr>
+
+<table>
+    <tbody id="emp">
+    <tr> 
+        <th *ngFor="let column of headers">
+            {{column}}
+        </th>
+    </tr>
+
+    <tr *ngFor="let row of rows">
+        <td *ngFor="let column of headers">
+            
+            {{row[column]}} 
+            
+
+        </td>
+    </tr>
+</tbody>
+</table> 
+<div>
+    <button type="button" class="btn" (click)="navigateToSearch()">Search</button>
+</div>
+<router-outlet></router-outlet>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <button (click)="router.navigate(['/search']);">
+<span>Go to search page</span>
+</button> -->
+
+
+
+<button 
+class="btn btn-primary"
+ onclick="search()" style="margin-right: 30px; margin-top: 40px">search
+</button>
+<div class="row">
+    <div class="col">
+        <div class="col-xs-3">
+            <b>Search Name : 
+            <input  id="gfg" type="text" class="form-control">
+        </b>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function (){
+       $("#gfg").on("keyup", function(){
+           var value = $(this).val().toLowerCase();
+           $("#emp tr").filter(function (){
+               $(this).toggle($(this).next()
+               .toLowerCase().indexOf(value) > -1 )
+           });
+       });
+    });
+</script>
+
+
+
+
+
+
+
+<button 
+class="btn btn-primary"
+onclick="findExCandidates()" style="margin-right: 30px; margin-top: 40px">Experienced candidates
+</button>
+
+<button 
+class="btn btn-primary"
+onclick="findDepartment()" style="margin-right: 30px; margin-top: 40px">Experienced candidates
+</button>
+
+<button 
+class="btn btn-primary"
+onclick="remove()" style="margin-right: 30px; margin-top: 40px">Remove
+</button>
+
+<router-outlet></router-outlet>
+
+
+
+
+<!-- <div class="row">
+    <div class="col">
+        <div class="col-xs-10">
+            <input  type="text" class="form-control">
+        
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+<!-- <table class = "table">
+<thead class="thead-dark">
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">department</th>
+            <th scope="col">joining_date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let column of data">
+            <td>{{column.id}}</td>
+            <td>{{column.name}}</td>
+            <td>{{column.department}}</td>
+            <td>{{column.joining_date | date:'dd/mm/yyyy'}}</td>        
+        </tr>
+    </tbody>
+
+</table>  -->
+<!--getting error with date by using ngFor directive, with bootstrap date is working.-->
+
+<!-- <table class="thead-dark">
+    <head>
+        <style>
+            table {
+              width: 50%;
+              border: 1px solid black;
+            }
+            th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                padding-left: 20px;
+                text-align: center;
+                background-color: #f5870a;
+                color: white;
+                /* cursor: pointer; */
+                
+            }
+                /* select.arrows {
+                    background-size: 1.5em 1.5em;
+                } */
+            nav.a.active{
+                color:#f5870a
+            }
+
+ 
+
+            td{
+                border: 1px solid #ddd;
+                padding: 20px;
+                text-align: center;
+            }
+
+          
+
+
+        </style>
+    </head>
+    <thead>
+        
+        <tr>
+        <th [appSort]="dataList" data-order="desc" data-name="employeeId" scope="col">Id</th>
+        <th [appSort]="dataList" data-order="desc" data-name="employeeName" scope="col">Name</th>
+        <th [appSort]="dataList" data-order="desc" data-name="employeeDepartment" scope="col">Department</th>
+        <th [appSort]="dataList" data-order="desc" data-name="employeeJoiningdate" scope="col">Joiningdate</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of dataList">
+           <td>{{data.employeeId}}</td> 
+           <td>{{data.employeeName}}</td>
+           <td>{{data.employeeDepartment}}</td>
+           <td>{{data.employeeJoiningdate}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<button 
+class="btn btn-primary"
+ onclick="search()" style="margin-right: 30px; margin-top: 40px">Search
+</button>
+   <div class="row">
+    <div class="col">
+        <div class="col-xs-5">
+            <input  type="text" class="form-control">
+            
+        </div>
+    </div>
+</div>  -->
+
+<!-- <nav>
+    <a routerLink="/search" routerLinkActive="active">Search</a>
+</nav>
+
+
+
+  
+  
+      <thead>
+        <tr>
+            <th scope="row">employeeId</th>
+            <th scope="row">employeeName</th>
+            <th scope="row">employeeDepartment</th>
+            <th scope="row">employeeJoiningdate</th>
+        </tr>
+    </thead> 
+    <tbody>
+        <tr *ngFor="let data of dataList">
+            <td>{{data.employeeId}}</td>
+            <td>{{data.employeeName}}</td>
+            <td>{{data.employeeDepartment}}</td>
+            <td>{{data.employeeJoiningdate}}</td>
+        </tr>
+    </tbody> --> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
